@@ -2,8 +2,8 @@
 @section('content')
 
             <div class="container content-container">
-                <div class="row">
-                    <div class=" col-md-12">
+                <div class="row" style="background-image: url(../../images/bg.jpg); overlay: .5 black;">
+                    <div class=" col-md-12" style="background-image: url(../../images/bg.jpg)">
                         <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1453200552863 vc_row-no-padding">
                             <div class="wpb_column vc_column_container vc_col-md-12">
                                 <div class="vc_column-inner ">
@@ -151,7 +151,7 @@
                                             <img alt='OUR STAFFS BIG HART, LOVES HELPING' src='images/sliders/home_corporation_slider_slide4.png'/>
                                             <div class="featured-simple-content">
                                                 <div class='featured-simple-text'></div>
-                                                <a href='about-us/index.html' class='featured-simple-button btn btn-minimal'></a>
+                                                <a href='/aboutus' class='featured-simple-button btn btn-minimal'></a>
                                             </div>
                                         </div>
                                     </div>
@@ -221,43 +221,33 @@
                                                 <div class="news">
                                                     <div class="card">
                                                         <div class="row">
-                                                                                                                <div class="col-md-4">
-                                                                <article >
-                                                                    <header>
-                                                                        <img src="admin/postimages/0c34be09831e0a4456d6dba1d36cf249jpeg" class="" alt="Historical development" style="height: 200px;width: 330px;" >
-                                                                    </header>
-                                                                    <div class="post-minimal-wrap" style="width: 330px; margin-right: 10px;">
-                                                                        <a href="news_details.php?new_tag=14&title=Historical development">
-                                                                            <h3 class="post-minimal-title">Historical development</h3>
-                                                                        </a>
-                                                                        <ul class="post-minimal-meta">
-                                                                            <li>
-                                                                                <i class="fa fa-calendar"></i>
-                                                                                                                                                        <time datetime="2021-04-20 12:29:15">2021-04-20 </time>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </article>
+                                                @if (count($news) > 0)
+                                                    @foreach ($news as $post)
+                                                    <div class="col-md-4">
+                                                        <article >
+                                                            <header>
+                                                                <img src="admin/postimages/{{$post->image}}" class="" alt="{{$post->title}}" style="height: 200px;width: 330px;" >
+                                                            </header>
+                                                            <div class="post-minimal-wrap" style="width: 330px; margin-right: 10px;">
+                                                                <a href="news_details{{$post->id}}/{{$post->title}}">
+                                                                    <h3 class="post-minimal-title">{{$post->title}}</h3>
+                                                                </a>
+                                                                <ul class="post-minimal-meta">
+                                                                    <li>
+                                                                        <i class="fa fa-calendar"></i>
+                                                                                                                                                <time datetime="2021-04-20 12:29:15">2021-04-20 </time>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
-                                                                                                                <div class="col-md-4">
-                                                                <article >
-                                                                    <header>
-                                                                        <img src="admin/postimages/135007e7085979a7d5b41ce54c0e54d7.jpg" class="" alt="Africa Stroke Organization" style="height: 200px;width: 330px;" >
-                                                                    </header>
-                                                                    <div class="post-minimal-wrap" style="width: 330px; margin-right: 10px;">
-                                                                        <a href="news_details.php?new_tag=13&title=Africa Stroke Organization">
-                                                                            <h3 class="post-minimal-title">Africa Stroke Organization</h3>
-                                                                        </a>
-                                                                        <ul class="post-minimal-meta">
-                                                                            <li>
-                                                                                <i class="fa fa-calendar"></i>
-                                                                                                                                                        <time datetime="2021-04-12 21:57:34">2021-04-12 </time>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </article>
-                                                            </div>
-                                                                                                            </div>
+                                                        </article>
+                                                    </div>
+
+                                                    @endforeach
+                                                @else
+
+                                                @endif
+
+                                                        </div>
                                                     </div>
                                                     <div class="owl-dots disabled"></div>
                                                 </div>
@@ -322,9 +312,7 @@
                                                                     </div>
                                                                 </li>
                                                             </div>
-
-
-                                                                                                                <div class="col-md-6" style="width:33.3%">
+                                                           <div class="col-md-6" style="width:33.3%">
                                                                 <li class="clearfix col-md-12">
                                                                     <div class="user">
                                                                         <div class="user-image">
@@ -363,7 +351,7 @@
                             </div>
                         </div>
                         <div class="vc_row-full-width vc_clearfix"></div>
-                        <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1473767835421 vc_row-has-fill">
+                        <div data-vc-full-width="true" data-vc-full-width-init="true" class="vc_row wpb_row vc_row-fluid vc_custom_1473767835421 vc_row-has-fill">
                             <div class="wpb_column vc_column_container vc_col-md-12">
                                 <div class="vc_column-inner ">
                                     <div class="wpb_wrapper">
@@ -374,64 +362,37 @@
                                         <div class="vc_empty_space" style="height: 25px" >
                                             <span class="vc_empty_space_inner"></span>
                                         </div>
-                                        <div class="team-desc team-desc-size-3">
-                                            <div class="team-desc-main">
+                                        <div class="team-desc team-desc-size-3" style="width: 100% !important">
+                                            <div class="team-desc-main" style="max-width:100px!important">
                                                 <div class='team'>
-                                                                                            <div class="member">
-                                                       <div class="member-wrap" style="background-color:#3498db">
-                                                           <div class="member-image">
-                                                               <a href="member.php?member_id=1&member=Dr. Rufus Akinyemi.
-        ">
-                                                                   <center><img style="width:300px;height:200px;align:center; padding:0px; border-radius:4px;"  src="images/committee/" class="attachment-anps-team size-anps-team wp-post-image" alt=""></center>
-                                                               </a>
-                                                           </div>
-                                                           <a href="member.php?member_id=1&member=Dr. Rufus Akinyemi.
-        ">
-                                                                <h3 class="member-name font1" style="color:#ffffff;">Dr. Rufus Akinyemi.
-        </h3>
-                                                           </a>
-                                                           <b><span class="member-title " style="color:#000000"><br />
-        <b>Notice</b>:  Undefined index: portfolio in <b>C:\xampp\htdocs\update.africanstrokeorganization.org\index.php</b> on line <b>390</b><br />
-        </span></b>
-                                                       </div>
-                                                   </div>
-                                                                                                <div class="member">
-                                                       <div class="member-wrap" style="background-color:#3498db">
-                                                           <div class="member-image">
-                                                               <a href="member.php?member_id=2&member=Prof. Mayowa Owolabi.">
-                                                                   <center><img style="width:300px;height:200px;align:center; padding:0px; border-radius:4px;"  src="images/committee/" class="attachment-anps-team size-anps-team wp-post-image" alt=""></center>
-                                                               </a>
-                                                           </div>
-                                                           <a href="member.php?member_id=2&member=Prof. Mayowa Owolabi.">
-                                                                <h3 class="member-name font1" style="color:#ffffff;">Prof. Mayowa Owolabi.</h3>
-                                                           </a>
-                                                           <b><span class="member-title " style="color:#000000"><br />
-        <b>Notice</b>:  Undefined index: portfolio in <b>C:\xampp\htdocs\update.africanstrokeorganization.org\index.php</b> on line <b>390</b><br />
-        </span></b>
-                                                       </div>
-                                                   </div>
-                                                                                                <div class="member">
-                                                       <div class="member-wrap" style="background-color:#3498db">
-                                                           <div class="member-image">
-                                                               <a href="member.php?member_id=3&member=Mr. Ad Adams Ebenezer.">
-                                                                   <center><img style="width:300px;height:200px;align:center; padding:0px; border-radius:4px;"  src="images/committee/" class="attachment-anps-team size-anps-team wp-post-image" alt=""></center>
-                                                               </a>
-                                                           </div>
-                                                           <a href="member.php?member_id=3&member=Mr. Ad Adams Ebenezer.">
-                                                                <h3 class="member-name font1" style="color:#ffffff;">Mr. Ad Adams Ebenezer.</h3>
-                                                           </a>
-                                                           <b><span class="member-title " style="color:#000000"><br />
-        <b>Notice</b>:  Undefined index: portfolio in <b>C:\xampp\htdocs\update.africanstrokeorganization.org\index.php</b> on line <b>390</b><br />
-        </span></b>
-                                                       </div>
-                                                   </div>
-                                                                                            </div>
+                                                    @if(count($committee) > 0)
+                                                        @foreach ($committee as $member)
+                                                    <div class="member">
+                                                        <div class="member-wrap" style="background-color:#3498db">
+                                                            <div class="member-image">
+                                                                <a href="/member/{{$member->id}}/{{$member->title}}">
+                                                                    <center><img style="width:100%;align:center; padding:0px; border-radius:4px;"  src="images/committee/{{$member->image}}" class="attachment-anps-team size-anps-team wp-post-image" alt=""></center>
+                                                                </a>
+                                                            </div>
+                                                            <a href="/member/{{$member->id}}/{{$member->title}}">
+                                                                <h3 class="member-name font1" style="color:#ffffff;">{{$member->title}}</h3>
+                                                            </a>
+                                                            <small><span class="member-title " style="color:#000000"><br />{{$member->intro}} </span></small>
+                                                        </div>
+                                                    </div>
+                                                        @endforeach
+
+                                                    @else
+
+                                                    @endif
+                                                </div>
                                             </div>
-                                            <div class="team-desc-side"><h3 class='team-desc-title' style='color: #ffffff;'></h3>
-                                                <div class='team-desc-description' style='color: #a3baca;'>We thank our members and we assure them that we will rely on their continuous trust and support now and as we move forward.
+                                            <div class="team-desc-side">
+                                                <h3 class='team-desc-title' style='color: #380808;'></h3>
+                                                <div class='team-desc-description' style='color: #a3baca; max-width:180px'>We thank our members and we assure them that we will rely on their continuous trust and support now and as we move forward.
 
                                                 </div>
-                                                <a href='member.php' target='_self' class='btn btn-normal btn-md'>OTHER MEMBERS</a>
+                                                <a href='/members' target='_self' class='btn btn-normal btn-md'>OTHER MEMBERS</a>
                                             </div>
                                         </div>
                                     </div>

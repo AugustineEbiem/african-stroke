@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Users;
 
 class UserController extends Controller
 {
@@ -13,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = Users::all();
+        return view('admin.members')->with('users', $users);
     }
 
     /**
@@ -46,6 +48,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        return Users::find($id);
     }
 
     /**
@@ -77,8 +80,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function destroy($id)
     {
         //
+
     }
+
 }

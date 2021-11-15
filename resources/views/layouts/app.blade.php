@@ -203,15 +203,14 @@
 							<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
 								<a href="#">News</a>
 								<ul class="sub-menu">
-									<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blogs.php">Blogs</a></li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="news.php">News</a></li>
-									<!--<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/newsletters.php">Newsletters</a></li>
-									<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/webinars.php">Webinars</a></li>-->
+									<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blogs">Blogs</a></li>
+									<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="news">News</a></li>
+
 								</ul>
 
 							</li>
 							<li class="menu-item menu-item-type-post_type menu-item-object-page">
-								<a href="gallery.php">Gallery</a>
+								<a href="gallery">Gallery</a>
 							</li>
 							<li class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-has-children">
 								<a href="../../membership"> Membership</a>
@@ -227,7 +226,13 @@
                                         @endif
                                     @else
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                                            @if (Auth::user()->is_admin == 1)
+                                            <a href="/admin/dashboard"> {{ Auth::user()->name }} - Dashboard</a>
+                                            @endif
+                                            @if (Auth::user()->is_admin != 1)
                                             <a href="/home"> {{ Auth::user()->name }} - Dashboard</a>
+                                            @endif
+
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -240,7 +245,7 @@
                                             </form>
                                         </li>
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                                            <a href="/home">Dashboard</a>
+                                            <a href="/home">Home</a>
                                         </li>
                                     @endguest
 								</ul>
@@ -272,7 +277,7 @@
 		        <div class="row">
 		            <div class="col-md-3 col-xs-6">
 		            	<div id="anpsimages-2" class="widget widget_anpsimages">
-							<img alt="Africa Stroke Organization" src="images/logo.jpeg" />
+							<img alt="Africa Stroke Organization" src="../images/logo.jpeg" style="br" />
 						</div>
 						<div id="anpsspacings-2" class="widget widget_anpsspacings">
 							<div class="empty-space block" style="height:2px;"></div>
@@ -412,7 +417,7 @@
 			        <div class="row">
 						<div class="col-md-6">
 							<div id="text-3" class="widget widget_text">
-								<div class="textwidget">Copyright &copy; 2020 <a href="/admin" target="_blank">African Stroke Organization</a>
+								<div class="textwidget">Copyright &copy; 2020 <a href="/admin/dashboard" target="_blank">African Stroke Organization</a>
 								</div>
 							</div>
 						</div>
