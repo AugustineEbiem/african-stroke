@@ -1,4 +1,6 @@
-
+<?php
+$url = 'http://aso.name';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,15 +10,15 @@
         <meta name="author" content="Coderthemes">
         <title>Africa Stroke Organization - Admin | Dashboard</title>
 		<link rel="stylesheet" href="../../plugins/morris/morris.css">
-        <link href="../../admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../../admin/assets/css/core.css" rel="stylesheet" type="text/css" />
-        <link href="../../admin/assets/css/components.css" rel="stylesheet" type="text/css" />
-        <link href="../../admin/assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="../../admin/assets/css/pages.css" rel="stylesheet" type="text/css" />
-        <link href="../../admin/assets/css/menu.css" rel="stylesheet" type="text/css" />
-        <link href="../../admin/assets/css/responsive.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="../../plugins/switchery/switchery.min.css">
-        <script src="../../admin/assets/js/modernizr.min.js"></script>
+        <link href="{{$url}}/admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{$url}}/admin/assets/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="{{$url}}/admin/assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="{{$url}}/admin/assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="{{$url}}/admin/assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="{{$url}}/admin/assets/css/menu.css" rel="stylesheet" type="text/css" />
+        <link href="{{$url}}/admin/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="{{$url}}/plugins/switchery/switchery.min.css">
+        <script src="{{$url}}/admin/assets/js/modernizr.min.js"></script>
         <style>
             .card-box:hover{
                 background-color:white !important;
@@ -37,20 +39,20 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="dashboard.php" class="logo"><span>ASO<span>Admin</span></span><i class="mdi mdi-layers"></i></a>
+                    <a href="{{$url}}/dashboard" class="logo"><span>ASO<span>Admin</span></span><i class="mdi mdi-layers"></i></a>
                 </div>
                         <div class="topbar">
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="../../../" class="logo"><span><span>A</span>S<span>O</span>.ORG</span><i class="mdi mdi-layers"></i></a>
+                    <a href="{{$url}}}" class="logo"><span><span>A</span>S<span>O</span>.ORG</span><i class="mdi mdi-layers"></i></a>
                     <!-- Image logo -->
                     <!--<a href="index.html" class="logo">-->
                         <!--<span>-->
-                            <!--<img src="../../admin/assets/images/logo.png" alt="" height="30">-->
+                            <!--<img src="{{$url}}/admin/assets/images/logo.png" alt="" height="30">-->
                         <!--</span>-->
                         <!--<i>-->
-                            <!--<img src="../../admin/assets/images/logo_sm.png" alt="" height="28">-->
+                            <!--<img src="{{$url}}/admin/assets/images/logo_sm.png" alt="" height="28">-->
                         <!--</i>-->
                     <!--</a>-->
                 </div>
@@ -76,7 +78,7 @@
 
                             <li class="dropdown user-box">
                                 <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown" aria-expanded="true">
-                                    <img src="../../admin/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                                    <img src="{{$url}}/admin/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
@@ -84,8 +86,8 @@
                                         <h5>Hi, {{ Auth::user()->name }}</h5>
                                     </li>
 
+                                    <li><a href="profile"><i class="ti-settings m-r-5"></i>Update Profile</a></li>
                                     <li><a href="change_password"><i class="ti-settings m-r-5"></i> Change Password</a></li>
-
                                     <li><a href="{{ route('logout') }}"><i class="ti-power-off m-r-5"></i> Logout</a></li>
                                 </ul>
                             </li>
@@ -111,30 +113,30 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-tag"></i> <span> Category </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                	<li><a href="../../admin/category/create">Add Category</a></li>
-                                    <li><a href="../../admin/category">Manage Category</a></li>
+                                	<li><a href="{{$url}}/admin/category/create">Add Category</a></li>
+                                    <li><a href="{{$url}}/admin/category">Manage Category</a></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect "><i class="fa fa-book"></i> <span> Journals </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                	<li><a href="../../admin/journals/create">Add Journal</a></li>
-                                    <li><a href="../../admin/journals">Manage Journals</a></li>
+                                	<li><a href="{{$url}}/admin/journals/create">Add Journal</a></li>
+                                    <li><a href="{{$url}}/admin/journals">Manage Journals</a></li>
                                 </ul>
                             </li>
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-tv"></i> <span> Blogs </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                	<li><a href="../../admin/blogs/create">New Blog</a></li>
-                                    <li><a href="../../admin/blogs">Manage Blogs</a></li>
+                                	<li><a href="{{$url}}/admin/blogs/create">New Blog</a></li>
+                                    <li><a href="{{$url}}/admin/blogs">Manage Blogs</a></li>
                                 </ul>
                             </li>
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-suitcase"></i> <span> Resources </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                 	<!--<li><a href="new_resource.php">Add Resource</a></li>-->
-                                    <li><a href="../../admin/resources">Resources</a></li>
+                                    <li><a href="{{$url}}/admin/resources">Resources</a></li>
                                 </ul>
                             </li>
 
@@ -142,22 +144,22 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-sticky-note"></i> <span> News </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="../../admin/posts/create">Add News</a></li>
-                                    <li><a href="../../admin/posts">Manage News</a></li>
+                                    <li><a href="{{$url}}/admin/posts/create">Add News</a></li>
+                                    <li><a href="{{$url}}/admin/posts">Manage News</a></li>
                                 </ul>
                             </li>
                              <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-image"></i> <span> Gallery </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="../../admin/gallery/create">Add Photo</a></li>
-                                    <li><a href="../../admin/gallery">Manage Gallery</a></li>
+                                    <li><a href="{{$url}}/admin/gallery/create">Add Photo</a></li>
+                                    <li><a href="{{$url}}/admin/gallery">Manage Gallery</a></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-users"></i> <span> Membership </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="../../admin/members">Manage Members </a></li>
+                                    <li><a href="{{$url}}/admin/members">Manage Members </a></li>
 
                                 </ul>
                             </li>
@@ -194,14 +196,14 @@
         </script>
 
         <!-- jQuery  -->
-        <script src="../../admin/assets/js/jquery.min.js"></script>
-        <script src="../../admin/assets/js/bootstrap.min.js"></script>
-        <script src="../../admin/assets/js/detect.js"></script>
-        <script src="../../admin/assets/js/fastclick.js"></script>
-        <script src="../../admin/assets/js/jquery.blockUI.js"></script>
-        <script src="../../admin/assets/js/waves.js"></script>
-        <script src="../../admin/assets/js/jquery.slimscroll.js"></script>
-        <script src="../../admin/assets/js/jquery.scrollTo.min.js"></script>
+        <script src="{{$url}}/admin/assets/js/jquery.min.js"></script>
+        <script src="{{$url}}/admin/assets/js/bootstrap.min.js"></script>
+        <script src="{{$url}}/admin/assets/js/detect.js"></script>
+        <script src="{{$url}}/admin/assets/js/fastclick.js"></script>
+        <script src="{{$url}}/admin/assets/js/jquery.blockUI.js"></script>
+        <script src="{{$url}}/admin/assets/js/waves.js"></script>
+        <script src="{{$url}}/admin/assets/js/jquery.slimscroll.js"></script>
+        <script src="{{$url}}/admin/assets/js/jquery.scrollTo.min.js"></script>
         <script src="../../plugins/switchery/switchery.min.js"></script>
 
         <!-- Counter js  -->
@@ -213,11 +215,11 @@
 		<script src="../../plugins/raphael/raphael-min.js"></script>
 
         <!-- Dashboard init -->
-        <script src="../../admin/assets/pages/jquery.dashboard.js"></script>
+        <script src="{{$url}}/admin/assets/pages/jquery.dashboard.js"></script>
 
         <!-- App js -->
-        <script src="../../admin/assets/js/jquery.core.js"></script>
-        <script src="../../admin/assets/js/jquery.app.js"></script>
+        <script src="{{$url}}/admin/assets/js/jquery.core.js"></script>
+        <script src="{{$url}}/admin/assets/js/jquery.app.js"></script>
 
     </body>
 </html>

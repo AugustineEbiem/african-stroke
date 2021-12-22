@@ -2,7 +2,7 @@
 @section('content')
 
             <div class="container content-container">
-                <div class="row" style="background-image: url(../../images/bg.jpg); overlay: .5 black;">
+                <div class="row" style="background-image: url(../../images/bg1.jpg); overlay: .9 black;">
                     <div class=" col-md-12" style="background-image: url(../../images/bg.jpg)">
                         <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1453200552863 vc_row-no-padding">
                             <div class="wpb_column vc_column_container vc_col-md-12">

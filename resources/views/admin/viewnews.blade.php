@@ -28,7 +28,7 @@
                 {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST','files'=>'true', 'enctype' =>'multipart/data', ]) !!}
                 <div class="form-group m-b-20">
                     {{Form::label('title','News heading') }}
-                    {{Form::text('posttitle','', ['class'=>'form-control','value'=>$post->title, 'placeholder'=>'Enter title', 'required'=>'required']) }}
+                    {{Form::text('posttitle','', ['class'=>'form-control', 'placeholder'=>'Enter title', 'required'=>'required']) }}
                 </div>
                 <div class="form-group m-b-20">
                     {{Form::label('title','Access Type')}}

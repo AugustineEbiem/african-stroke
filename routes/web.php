@@ -49,7 +49,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('admin/blogs','BlogsController');
     Route::resource('admin/category','CategoryController');
     Route::post('admin/category/create','CategoryController@store');
-
+    Route::get('admin/change_password', 'adminController@c_pass')->name('admin.password');
+    Route::get('admin/profile','adminController@profile')->name('admin.profile');
+    Route::post('admin/profile/','adminController@update_profile')->name('admin_profile');
 
     Route::get('admin/resources', 'adminController@resources')->name('admin.resources');
 
@@ -63,7 +65,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 
  });
- Route::get('admin/change_password', 'adminController@c_pass')->name('admin.password');
+
 
 
 

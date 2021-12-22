@@ -4,7 +4,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="xmlrpc.php" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-   <title>Africa Stroke Organization &#8211;Official Website</title>
+   <title>Africa Stroke Organization &#8211; Official Website</title>
     <meta name='robots' content='noindex,follow' />
     <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
     <link rel='dns-prefetch' href='http://s.w.org/' />
